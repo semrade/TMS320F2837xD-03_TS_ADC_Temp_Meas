@@ -60,8 +60,7 @@ int16 s_i16SensorTemp;
  * \param[in]       void
  * \return          void
  **********************************************************************************/
-void
-main (void)
+void main(void)
 {
     /***************************CPU Initialization*********************************/
     /* Set up system flash and turn peripheral clocks */
@@ -128,8 +127,7 @@ main (void)
  * \param[in]       void
  * \return          void
  **********************************************************************************/
-interrupt void
-Timer0_ISR(void)
+interrupt void Timer0_ISR(void)
 {
 
     /* Clear Timer interrupt flag */

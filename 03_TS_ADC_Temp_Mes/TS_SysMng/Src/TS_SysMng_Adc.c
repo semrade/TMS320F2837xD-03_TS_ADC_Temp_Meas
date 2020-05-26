@@ -45,8 +45,7 @@
  * \return          void
  **********************************************************************************/
 
-void
-TS_SysMng_AdcConfig(void)
+void TS_SysMng_AdcConfig(void)
 {
     /* Enable EALLOW protected register access */
     EALLOW;
@@ -77,7 +76,6 @@ TS_SysMng_AdcConfig(void)
     AdcaRegs.ADCSOC0CTL.bit.CHSEL = ADC_CH_ADCIN13;
     AdcaRegs.ADCSOC0CTL.bit.ACQPS = 139;
 
-
     /*
      * => ADCA13 interrupt configuration
      * => Interrupt pulses regardless of flag state
@@ -106,15 +104,14 @@ TS_SysMng_AdcConfig(void)
  * \param[in]       void
  * \return          void
  **********************************************************************************/
-void
-TS_SysMng_AdcAcqEnding(void)
+void TS_SysMng_AdcAcqEnding(void)
 {
     /* Wait for end of conversion event */
-    while(0 == AdcaRegs.ADCINTFLG.bit.ADCINT1);
+    while (0 == AdcaRegs.ADCINTFLG.bit.ADCINT1)
+        ;
 
     /* Clear event ADC-A flag interrupt acquisition */
     AdcaRegs.ADCINTFLGCLR.bit.ADCINT1 = 1;
 
 }
-
 
